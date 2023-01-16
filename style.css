@@ -1,0 +1,301 @@
+body{
+	padding:10px;
+    font-family: 'Roboto', sans-serif;
+	color:#434b59;
+	text-align:justify;
+}
+header{
+    color:#687183;
+}
+header span{
+    display:inline-block;
+    margin: auto;
+    width:100%;
+    text-align:right;
+}
+header h1{
+    font-size: 22px;
+	text-align:center;
+}
+section{
+	border: solid #687183;
+	border-width: 1px 0px 1px 0px; 
+}
+section h2{
+	font-size: 18px;
+}
+section p{
+	text-indent: 30px;
+}
+section > div figure figcaption{
+	font-size: 12px;
+	font-weight:bold;
+	text-align:center;
+}
+#page-5 > div > div figure iframe{
+		height:800px;
+}
+#page-6 > div > div figure #if-left{
+		height:660px;
+}
+#page-6 > div > div figure #if-right{
+		height:760px;
+}
+#page-7 > div > div figure #if-left{
+		height:760px;
+}
+#page-7 > div > div figure #if-right{
+		height:960px;
+}
+#page-10 > div > div figure iframe{
+		height:1020px;
+}
+.rawalgo{
+	display:flex;
+	flex-direction:column;
+}
+.page .content{
+	display:flex;
+	flex-direction:column;
+}
+.page > div .left,
+.page > div .right{
+	margin:auto;
+	width: 300px;
+	width:95%;
+	max-width:600px;
+	/*height:1280px;*/
+}
+
+.page > div > div figure{
+	margin:auto;
+	width: 95%;
+}
+
+/*codes*/
+pre.code {
+    white-space: pre-wrap;
+    line-height: 1.3;
+}
+
+pre.code::before {
+    counter-reset: listing;
+}
+
+pre.code code {
+    counter-increment: listing;
+}
+
+pre.code code::before {
+    content: counter(listing) ".";
+    display: inline-block;
+    padding-left: auto;
+    margin-left: auto;
+    text-align: right;
+}
+
+/*tables*/
+table{
+	width:300px;
+}
+tr{
+	height:24px;
+}
+td{
+	font-size: 14px;
+}
+td.cell-arr{
+	width:200px;
+	
+}
+.table-left tr :nth-child(n+1){
+	width:30px;
+	text-align:center;
+}
+
+/*codes Java code*/
+pre.java_code {
+    white-space: pre;
+    line-height: 1.6;
+	font-size:14px;
+    padding-left:10px;
+    color:#b5b4aa;
+	background:#141313;
+	overflow: auto;
+}
+pre.java1{
+	height: 1200px;
+}
+pre.java2{
+	height:170px;
+}
+pre.java3{
+	height:320px;
+}
+pre.java4{
+	height:780px;
+}
+pre.java6{
+	height:1200px;
+}
+pre.java_code::before {
+    counter-reset: listing;
+}
+
+pre.java_code code {
+    counter-increment: listing;
+}
+pre.java7{
+	height:300px;
+}
+pre.java8{
+	height:460px;
+}
+pre.java_code code::before {
+    content: counter(listing) ".  ";
+    display: inline-block;
+    padding-left: auto;
+    margin-left: auto;
+    text-align: right;
+}
+code .reserved{
+	color:#8da0eb;
+	font-weight:bold;
+}
+code .import{
+	color:#e6b26e;
+	font-weight:bold;
+}
+code .comment{
+	color:#14c427;
+	font-weight:bold;
+}
+code .ets{
+	color:#c4c014;
+	font-weight:bold;
+}
+code .marks{
+	color:#e75151;
+}
+
+/*Electors table*/
+
+.elector-table-zone{
+	width:300px;
+	margin: auto;
+	overflow:auto;
+}
+.elector-data{
+	table-layout:fixed;
+	font-size:14px;
+	margin:auto;
+}
+.elector-data tr .col-1{
+	width:90px;
+}
+.elector-data tr .col-2{
+	width:70px;
+}
+.elector-data tr .col-3{
+	width:80px;
+}
+.elector-data tr .col-4{
+	width:30px;
+}
+.elector-data tr .col-5{
+	width:100px;
+}
+.elector-data tr .col-6{
+	width:150px;
+}
+.elector-data tr .col-7{
+	width:20px;
+}
+.elector-data tr .col-8{
+	width:60px;
+}
+
+#page-9 .content .right figure{
+	height:460px;
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	justify-content:center;
+}
+/*Electors table two*/
+
+.elector-data-two{
+	table-layout:fixed;
+	font-size:14px;
+	margin:auto;
+}
+.elector-data-two tr .col-1{
+	width:130px;
+}
+.elector-data-two tr .col-2{
+	width:80px;
+}
+.elector-data-two tr .col-3{
+	width:20px;
+}
+.elector-data-two tr .col-4{
+	width:70px;
+}
+.elector-data-two tr .col-5{
+	width:50px;
+}
+.elector-data-two tr .col-6{
+	width:70px;
+}
+.elector-data-two tr .col-7{
+	width:130px;
+}
+.elector-data-two tr .col-8{
+	width:20px;
+}
+.elector-data-two tr .col-9{
+	width:70px;
+}
+@media screen and (min-width: 500px){
+	#page-9 .content .right figure{
+		height:900px;
+	}	
+}
+@media screen and (min-width: 1000px){
+	.page > div .left,
+	.page > div .right{
+		width: 450px;
+	}
+	.page .content{
+		flex-direction:row;
+	}
+	#page-9 .content .right figure{
+		height:900px;
+	}	
+}
+
+@media screen and (min-width: 1300px){
+	.page > div .left,
+	.page > div .right{
+		padding-top:40px;
+		height:1240px;
+		width: 650px;
+	}
+	.rawalgo{
+		flex-direction:row;
+	}
+	pre.code {
+	    line-height: 1.6;
+	}
+	table {
+	    width: 500px;
+	    margin: auto;
+	}
+	.elector-table-zone {
+	    width: 560px;
+		height:400px;
+	}
+	#page-9 .content .right figure{
+		height:930px;
+	}
+}
