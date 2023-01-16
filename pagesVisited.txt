@@ -12,6 +12,8 @@ https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Arrays.ht
 
 https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html
 
+https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Character.html
+
 https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html
 
 https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Map.html
@@ -24,6 +26,10 @@ https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/HashMap.h
 
 
 https://regexone.com/lesson/letters_and_digits?
+
+https://regex101.com/
+
+https://www.javacodeexamples.com/java-regex-extract-text-between-quotes/3522
 
 https://raw.githubusercontent.com/iPraBhu/ADevGuide/master/Resources/regular-expressions-cheat-sheet.jpg
 
