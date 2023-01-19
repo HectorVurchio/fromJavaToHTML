@@ -33,6 +33,8 @@ https://www.javacodeexamples.com/java-regex-extract-text-between-quotes/3522
 
 https://raw.githubusercontent.com/iPraBhu/ADevGuide/master/Resources/regular-expressions-cheat-sheet.jpg
 
+https://mateam.net/html-escape-characters/
+
 
 
 

@@ -4,25 +4,30 @@ import java.io.FileWriter;
 import java.io.BufferedReader;
 import java.io.PrintWriter;
 import java.io.IOException;
+import java.io.File;
 
 public class StartWithComments{
 	private BufferedReader inputStream;
 	private PrintWriter outputStream;
 	//1. if keepGoing == false, we are  still in a commented paragraph.
 	private boolean keepGoing;
-	String line;
-	public StartWithComments(){
+	private String line;
+	private FileReader reader;
+	private FileWriter writer;
+	public StartWithComments(File reader, File writer) throws IOException{
 		//System.out.println(String.format("\\u%04x", (int) '\''));
         this.inputStream = null;
         this.outputStream = null;
 		this.keepGoing = true;
+		this.reader = new FileReader(reader);
+		this.writer = new FileWriter(writer);
 	}
 	
 	public void startProgram()throws IOException{
 		Comment comment = new Comment();
 		try {
-            inputStream = new BufferedReader(new FileReader("CodeIn.txt"));
-            outputStream = new PrintWriter(new FileWriter("CodeOut.txt"));
+            inputStream = new BufferedReader(reader);
+            outputStream = new PrintWriter(writer);
             while ((line = inputStream.readLine()) != null) {
 				//0. are we behind the presense of a commented line?
 				line = comment.checkComment(line);
