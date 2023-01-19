@@ -55,9 +55,7 @@ public class BarraMenu {
 		 return menuFile;
      }
      
-	 private JMenuItem createMenuItem(String title, 
-						int keyEvent,  
-						String fileName,
+	 private JMenuItem createMenuItem(String title,int keyEvent,String fileName,
 						String eventName, int action,String dialogTitle,String intention){
 		 JMenuItem menuItem = new JMenuItem (title,keyEvent);
 		 menuItem.setIcon(new IconSetter().createIcono(className,fileName));
@@ -67,10 +65,8 @@ public class BarraMenu {
 				  if(action == 0){
 					  //new MyDialogCreator().getIPServer();  
 					fileChooser.createOpenChooser(dialogTitle,intention);
-					System.out.println(eventName);
 				  }else if(action == 1){
 					fileChooser.createSaveChooser(dialogTitle);
-					System.out.println(eventName);
 				  }else if(action == 2){
 					  fileChooser.setOutputFile();	
 				  }

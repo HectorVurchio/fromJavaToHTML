@@ -13,7 +13,13 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.Box;
 import javax.swing.JScrollPane;
-    
+
+import java.io.IOException;
+import java.nio.file.Paths;
+import java.nio.file.Path;
+
+import htmlCssFormat.StartWithComments;
+  
 public class MainPanel{
      private JFrame frame;
      private Double mainFrameWidth;
@@ -89,6 +95,23 @@ public class MainPanel{
 			System.out.println(FileChooserFrames.input);
 			System.out.println(FileChooserFrames.output);
 			System.out.println(FileChooserFrames.outputFileName);
+			
+			try{
+				new StartWithComments(FileChooserFrames.input,FileChooserFrames.output).startProgram();
+			}catch(IOException ex){
+				System.out.println(ex);
+			}
+			
+			/*
+			System.out.println("OS-Name: "+System.getProperty("os.name"));
+			System.out.println("User-Home: "+System.getProperty("user.home"));
+			System.out.println("User-Name: "+System.getProperty("user.name"));
+			System.out.println("User-Dir: "+System.getProperty("user.dir"));
+			*/
+			/*
+			Path sourceFile = Paths.get(System.getProperty("user.dir"),FileChooserFrames.outputFileName); 
+			System.out.println(sourceFile);
+			*/
 		 });
 		 panelThree.setLayout(new BoxLayout(panelThree,BoxLayout.LINE_AXIS));
 		 panelThree.add(connectLabel);
