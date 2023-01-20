@@ -3,11 +3,11 @@ import javax.swing.SwingUtilities;
 
 
 public class StartProgram {
-	
 	public StartProgram(){}
 	
 	public void show(){
 		new HtmlCssFormatFrame().createGUI();
+		PrepareFiles.writeFilesTextArea();
 	}
      public static void main (String[] args){
           javax.swing.SwingUtilities.invokeLater(new Runnable(){

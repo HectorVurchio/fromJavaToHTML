@@ -13,11 +13,12 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.Box;
 import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.nio.file.Path;
-
+import java.awt.Font;
 import htmlCssFormat.StartWithComments;
   
 public class MainPanel{
@@ -29,17 +30,17 @@ public class MainPanel{
      private int panelTwoHeightInt,panelTwoWidthInt; 
      private int panelThreeHeightInt,panelThreeWidthInt;
      private Container mainFramePaneComponents;
-
 	 public JButton connectButton;
 	 public JLabel connectLabel;
-	 
-	 
-	 
+	 private JTextArea textArea;
 	 
      public MainPanel(JFrame frame, Double mainFrameWidth, Double mainFrameHeight){
 		 this.frame = frame;
 		 this.mainFrameWidth = mainFrameWidth;
 		 this.mainFrameHeight = mainFrameHeight;
+		 this.textArea = new JTextArea();
+		 this.textArea.setEditable(false);
+		 this.textArea.setFont(new Font("Serif", Font.BOLD, 16));
      }
 
      public Container addMainFramePaneComponents() { 
@@ -66,7 +67,8 @@ public class MainPanel{
 		 int locX = locationX.intValue();
 		 int locY = 2*locationY.intValue()+panelOneHeightInt;
 		 panelTwo.setBounds(insets.left+locX,insets.top+locY,panelTwoWidthInt,panelTwoHeightInt);
-		JScrollPane listScrollPane = new JScrollPane();
+		JScrollPane listScrollPane = new JScrollPane(textArea);
+		PrepareFiles.textArea = textArea;
 		 panelTwo.add(listScrollPane,BorderLayout.CENTER); 
 		 return panelTwo;
      }
@@ -88,30 +90,19 @@ public class MainPanel{
 		 // adding components to this panel 
 		 connectLabel = new JLabel();
 		 connectLabel.setText("www.hjvalue.com");
+		 connectLabel.setFont(new Font("Serif", Font.BOLD, 16));
 		 connectButton = new JButton();
 		 connectButton.setText("Apply");
 		 connectButton.addActionListener(e -> {
-			System.out.println("Connection button");
-			System.out.println(FileChooserFrames.input);
-			System.out.println(FileChooserFrames.output);
-			System.out.println(FileChooserFrames.outputFileName);
-			
+			 System.out.println(PrepareFiles.input);
+			 System.out.println(PrepareFiles.output);
+			 System.out.println(PrepareFiles.outputFileName);
+			 
 			try{
-				new StartWithComments(FileChooserFrames.input,FileChooserFrames.output).startProgram();
+				new StartWithComments(PrepareFiles.input,PrepareFiles.output).startProgram();
 			}catch(IOException ex){
 				System.out.println(ex);
 			}
-			
-			/*
-			System.out.println("OS-Name: "+System.getProperty("os.name"));
-			System.out.println("User-Home: "+System.getProperty("user.home"));
-			System.out.println("User-Name: "+System.getProperty("user.name"));
-			System.out.println("User-Dir: "+System.getProperty("user.dir"));
-			*/
-			/*
-			Path sourceFile = Paths.get(System.getProperty("user.dir"),FileChooserFrames.outputFileName); 
-			System.out.println(sourceFile);
-			*/
 		 });
 		 panelThree.setLayout(new BoxLayout(panelThree,BoxLayout.LINE_AXIS));
 		 panelThree.add(connectLabel);

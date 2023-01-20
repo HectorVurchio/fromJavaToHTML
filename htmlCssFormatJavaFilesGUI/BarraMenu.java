@@ -36,7 +36,7 @@ public class BarraMenu {
 	}
 
      public JMenuBar createMenuBar(){
-		 Double menuBarHeightDouble = height*.06;
+		 Double menuBarHeightDouble = height*.1;
 		 int menuBarHeightInt = menuBarHeightDouble.intValue();
 		 menuBarra.setPreferredSize(new Dimension(width,menuBarHeightInt));
 		 menuBarra.setOpaque(true);
@@ -46,9 +46,9 @@ public class BarraMenu {
 	 
 	 private JMenu createMenuFile (){
 		 menuFile.setMnemonic(menuFileKeyEvent);
-		 menuFile.add(createMenuItem("Input File",KeyEvent.VK_S,"Server.png","get IP Server",0,"Select Input File","input"));
+		 menuFile.add(createMenuItem("Input File",KeyEvent.VK_S,"input.png","get IP Server",0,"Select Input File","input"));
 		 menuFile.addSeparator();
-		 menuFile.add(createMenuItem("Output File",KeyEvent.VK_E,"Exit.png","get exit port",0,"Select Output File","output"));
+		 menuFile.add(createMenuItem("Output File",KeyEvent.VK_E,"output.png","get exit port",0,"Select Output File","output"));
 		 menuFile.addSeparator();
 		 menuFile.add(createMenuItem("Build Output",KeyEvent.VK_E,"helmet.png","build your output",2,"name of Output File","build"));
 		 menuFile.addSeparator();

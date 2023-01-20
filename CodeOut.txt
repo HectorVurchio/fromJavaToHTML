@@ -1,0 +1,33 @@
+<code><span class="orange">package </span>matrixCalculatorGUI<span class="marks">;</span></code>
+<code><span class="reserved">import </span>javax<span class="marks">.</span>swing<span class="marks">.</span>SwingUtilities<span class="marks">;</span></code>
+<code></code>
+<code><span class="orange">public </span><span class="orange">class </span>CalcMatrixGUI <span class="marks">{</span></code>
+<code></code>
+<code>     CalcMatrixGUI<span class="marks">(</span>String<span class="marks">[</span><span class="marks">]</span> args<span class="marks">)</span><span class="marks">{</span></code>
+<code><span class="comment">        // Invoked on the event dispatching thread. Do any initialization</span></code>
+<code><span class="comment">        // here.</span></code>
+<code>     <span class="marks">}</span></code>
+<code></code>
+<code>     <span class="orange">public </span>void show<span class="marks">(</span><span class="marks">)</span> <span class="marks">{</span></code>
+<code>     MainFrame<span class="marks">.</span>createGUI<span class="marks">(</span><span class="marks">)</span><span class="marks">;</span></code>
+<code>     <span class="marks">}</span></code>
+<code></code>
+<code>     <span class="orange">public </span>static void main <span class="marks">(</span>String<span class="marks">[</span><span class="marks">]</span> args<span class="marks">)</span><span class="marks">{</span></code>
+<code><span class="comment">         // Schedule a job for the event-dispatching thread:</span></code>
+<code><span class="comment">        // creating and showing this application's GUI.</span></code>
+<code>          javax<span class="marks">.</span>swing<span class="marks">.</span>SwingUtilities<span class="marks">.</span>invokeLater<span class="marks">(</span><span class="reserved">new </span>Runnable<span class="marks">(</span><span class="marks">)</span><span class="marks">{</span></code>
+<code>               <span class="orange">public </span>void run<span class="marks">(</span><span class="marks">)</span> <span class="marks">{</span></code>
+<code>                   <span class="reserved">new </span>CalcMatrixGUI<span class="marks">(</span>args<span class="marks">)</span><span class="marks">.</span>show<span class="marks">(</span><span class="marks">)</span><span class="marks">;</span></code>
+<code>               <span class="marks">}</span></code>
+<code>          <span class="marks">}</span><span class="marks">)</span><span class="marks">;</span></code>
+<code>     <span class="marks">}</span></code>
+<code></code>
+<code><span class="marks">}</span></code>
+<code></code>
+<code><span class="comment">//cd Desktop\CalcMat4</span></code>
+<code></code>
+<code><span class="comment">// javac -d . matrixCalculatorGUI/*.java matrixCalculatorLogic/*.java</span></code>
+<code></code>
+<code><span class="comment">// java matrixCalculatorGUI.CalcMatrixGUI</span></code>
+<code></code>
+<code><span class="comment">// jar cfm MatrixCalc.jar Manifest.txt matrixCalculatorGUI matrixCalculatorLogic</span></code>

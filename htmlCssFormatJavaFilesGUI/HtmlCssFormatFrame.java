@@ -25,7 +25,7 @@ public class HtmlCssFormatFrame{
 	public JFrame createGUI(){
 		frame.setTitle(title);
 		try{
-			frame.setIconImage(new IconSetter().createIcono("htmlCssFormatGUI.HtmlCssFormatFrame","HJValueIcon.png").getImage());
+			frame.setIconImage(new IconSetter().createIcono("htmlCssFormatGUI.HtmlCssFormatFrame","HJValueIco_1.png").getImage());
 		}catch(NullPointerException e){
 			JOptionPane.showMessageDialog(frame,errorMessage);
 		}

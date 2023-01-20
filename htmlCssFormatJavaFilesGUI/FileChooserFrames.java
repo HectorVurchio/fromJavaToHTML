@@ -19,23 +19,13 @@ public class FileChooserFrames {
     final String newline = "\n";
 	private JFrame frame;
 	private JFileChooser fileChooser;
-	private String filePath;
 	private String[] filters = {"txt Files","txt"};
 	private FileNameExtensionFilter filter;
-	private static String defaultDirectory  = "HJDefault";
-	public static File input;
-	public static File output;
-	public static String outputFileName;
-	
-	static {
-        input = new File(setWorkFiles("CodeIn.txt").toString());
-		output = new File(setWorkFiles("CodeOut.txt").toString());
-		outputFileName = output.toString(); 
-    }
+
     public FileChooserFrames(JFrame frame){
 		this.frame = frame;
-		this.filePath = Paths.get(System.getProperty("user.home"),"Desktop",defaultDirectory).toString();
-		this.fileChooser = new JFileChooser(filePath);
+		//this.filePath = Paths.get(System.getProperty("user.home"),"Desktop",defaultDirectory).toString();
+		this.fileChooser = new JFileChooser(PrepareFiles.filePath);
 		this.filter = new FileNameExtensionFilter(this.filters[0],this.filters[1]);
 		this.fileChooser.setFileFilter(this.filter);
 		this.fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
@@ -53,11 +43,12 @@ public class FileChooserFrames {
 				System.out.println(" ");
 				System.out.println("Opening: " + file.getName() + "." + newline);
 				if(intention == "input"){
-					input = file;
+					PrepareFiles.input = file;
 				}else if(intention == "output"){
-					output = file;
-					outputFileName = file.getAbsolutePath();
+					PrepareFiles.output = file;
+					PrepareFiles.outputFileName = file.getAbsolutePath();
 				}
+				PrepareFiles.writeFilesTextArea();
 			} else {
 				System.out.println("Open command cancelled by user." + newline);
 			}
@@ -99,43 +90,24 @@ public class FileChooserFrames {
 	public void setOutputFile(){
 		String textMessage = "Insert Your Desired File Name";
 		String titleTwo = "Create Output File";
+		String outputFileName;
 		outputFileName = JOptionPane.showInputDialog(frame,
 									textMessage,titleTwo,JOptionPane.QUESTION_MESSAGE);
 		if(outputFileName != null){
-			String pattern = "[?.>/,_:~@*\'\"!#=^)(}{<\\s|$|(\\])|(\\[)]|\\]";
+			String pattern = "[?;.>/,_:~@*\'\"!#=^)(}{<\\s|$|(\\])|(\\[)]|\\]";
 			Pattern r = Pattern.compile(pattern);
 			Matcher m = r.matcher(outputFileName);
 			if(m.find()){
 				System.out.println("Special characters has been found...");
+				JOptionPane.showMessageDialog(frame, "Special characters has been found... Do not use it.");
 			}else{
 				outputFileName = MessageFormat.format("{0}.txt", outputFileName);
-				Path newFile = setWorkFiles(outputFileName);
-				output = new File(newFile.toString());
-				outputFileName = newFile.toString();
+				Path newFile = PrepareFiles.setWorkFiles(outputFileName);
+				PrepareFiles.output = new File(newFile.toString());
+				PrepareFiles.outputFileName = newFile.toString();
+				PrepareFiles.writeFilesTextArea();
 			}
 		}
-	}
-	private static Path setWorkFiles(String outputFileName){
-		Path newFile = Path.of(outputFileName);
-		Path absolutePath = Paths.get(System.getProperty("user.home"),"Desktop",defaultDirectory,outputFileName);
-		try{
-			Path newPath = Files.createDirectory(absolutePath.getParent());
-			newFile = Files.createFile(absolutePath);
-		}catch(FileAlreadyExistsException ioe){
-			System.out.println("Error cause "+ioe.getCause());
-			System.out.println("Error Reason "+ioe.getReason());
-			System.out.println("Message "+ioe.getMessage());
-			try{
-				newFile = Files.createFile(absolutePath);
-			}catch(FileAlreadyExistsException fae){
-				System.out.println("file "+outputFileName+" already exists in "+ioe.getMessage());
-			}catch(IOException e){
-				System.out.println("Problems with file");
-			}
-		}catch(IOException e){
-			System.out.println("Diferent Reason");
-		}
-		return newFile;
 	}
 }
 
